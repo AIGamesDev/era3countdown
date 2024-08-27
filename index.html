@@ -21,40 +21,42 @@
       // Set the countdown date in UTC
       var countDownDate = Date.UTC(2024, 7, 28, 00, 00, 00); // December 31, 2024 23:59:59 UTC
 
-      // Function to calculate and display the countdown
-      function updateCountdown() {
-        // Get the current date and time in UTC
-        var now = new Date().getTime();
+   // Function to calculate and display the countdown
+        function updateCountdown() {
+            // Get the current date and time in UTC
+            var now = new Date().getTime();
 
-        // Find the distance between now and the countdown date
-        var distance = countDownDate - now;
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
 
-        // Time calculations for days, hours, minutes, and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Time calculations for days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Output the result in the respective elements
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
+            // Output the result in the respective elements
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
 
-        // If the countdown is over, display a message
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("countdown").innerHTML = "The Era Has Begun!";
+            // If the countdown is over, display the image with a link
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = `
+                    <a href="https://scratch.mit.edu/projects/1051603505/" target="_blank">
+                        <img src="https://uploads.scratch.mit.edu/get_image/project/1051603505_916x652.png" alt="The Next Era" style="max-width: 100%; height: auto;">
+                    </a>
+                `;
+            }
         }
-      }
 
-      // Initialize the countdown immediately
-      updateCountdown();
+        // Initialize the countdown immediately
+        updateCountdown();
 
-      // Update the countdown every 1 second
-      var x = setInterval(updateCountdown, 1000);
+        // Update the countdown every 1 second
+        var x = setInterval(updateCountdown, 1000);
     </script>
   </body>
 </html>
